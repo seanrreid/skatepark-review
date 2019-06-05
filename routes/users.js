@@ -42,11 +42,29 @@ router.post('/signup', (req, res) =>{
   });
 });
 
-router.post('/login', (req, res) =>{
+router.post('/login', (req, res) => {
+  // Create a new instance of User.
+  // we don't want to login all users, 
+  // just a single instance of a user.
+
+  // We only have the email and password, 
+  // so we pass the other values as null
   const user = new User(null, null, null, req.body.email, req.body.password);
 
+  // Call the user instance login() method in the User model...
   user.login().then(response => {
-    console.log("login response", response);
+    console.log("response is", response);
+    if(response.isValid === true) {
+       // If we're a valid user then go to the home page
+      req.session.is_logged_in = true;
+      req.session.user_id = response.user_id;
+      req.session.first_name = response.first_name;
+      req.session.last_name = response.last_name;
+      res.redirect('/');
+    } else {
+       // If we're NOTE valid user then go to the signup page
+      res.redirect('/users/signup');
+    }
   })
   
 });

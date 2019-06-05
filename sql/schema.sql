@@ -16,7 +16,8 @@ create table users (
     id serial primary key,
     first_name varchar(100), -- "varchar" is equivalent to "character varying"
     last_name varchar(100),  -- "varying" just means that it won't be filled with spaces
-    email varchar(200)
+    email varchar(200),
+    password varchar(500)
 );
 
 create table reviews (

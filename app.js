@@ -1,4 +1,5 @@
 const express = require('express'),
+    session = require('express-session'),
     es6Renderer = require('express-es6-template-engine'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
@@ -19,7 +20,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session({
+    secret: 'get rad',
+    resave: false,
+    saveUninitialized: true,
+    is_logged_in: false
+}));
 app.use('/', indexRouter);
 app.use('/parks', parkRouter);
 app.use('/users', usersRouter);
