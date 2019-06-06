@@ -33,7 +33,12 @@ class User {
     async login() {
         try {
             const userData = await db.one(`
-                select password from users where 
+                select 
+                    id,
+                    first_name,
+                    last_name,
+                    password
+                from users where 
                     email = $1`, 
                 [this.email]);
             const valid = this.checkPassword(userData.password);
