@@ -10,7 +10,8 @@ router.get('/', async (req, res, next) => {
             title: 'List of Parks',
             parkData: parkData,
             is_logged_in: req.session.is_logged_in,
-            first_name: req.session.first_name
+            first_name: req.session.first_name,
+            user_id: req.session.user_id
         },
         partials: {
             partial: 'partial-index'
@@ -29,7 +30,8 @@ router.get('/:park_id?', async (req, res, next) => {
             parkData: parkData,
             reviewData: reviewData,
             is_logged_in: req.session.is_logged_in,
-            first_name: req.session.first_name
+            first_name: req.session.first_name,
+            user_id: req.session.user_id
         },
         partials: {
             partial: 'partial-single-park'
