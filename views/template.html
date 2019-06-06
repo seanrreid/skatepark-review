@@ -10,6 +10,8 @@
     <nav class="navbar main-nav  is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-start">
             <a class="navbar-item" href='/'>Home</a>
+        </div>
+        <div class="navbar-end">
         ${!!is_logged_in ? `
             <span class="navbar-item">Hello ${first_name}</span>
             <a class="navbar-item" href='/users/logout'>Logout</a>
