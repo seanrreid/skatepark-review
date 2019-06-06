@@ -8,7 +8,9 @@ router.get('/', async (req, res, next) => {
     res.render('template', {
         locals: {
             title: 'List of Parks',
-            parkData: parkData
+            parkData: parkData,
+            is_logged_in: req.session.is_logged_in,
+            first_name: req.session.first_name
         },
         partials: {
             partial: 'partial-index'
@@ -25,7 +27,9 @@ router.get('/:park_id?', async (req, res, next) => {
         locals: {
             title: parkData.name,
             parkData: parkData,
-            reviewData: reviewData
+            reviewData: reviewData,
+            is_logged_in: req.session.is_logged_in,
+            first_name: req.session.first_name
         },
         partials: {
             partial: 'partial-single-park'

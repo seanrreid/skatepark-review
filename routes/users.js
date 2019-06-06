@@ -9,6 +9,8 @@ router.get('/signup', function(req, res, next) {
   res.render('template', {
     locals: {
         title: 'User Sign Up',
+        is_logged_in: req.session.is_logged_in,
+        first_name: req.session.first_name
     },
     partials: {
         partial: 'partial-signup'
@@ -20,6 +22,8 @@ router.get('/login', function(req, res, next) {
   res.render('template', {
     locals: {
         title: 'User Login',
+        is_logged_in: req.session.is_logged_in,
+        first_name: req.session.first_name
     },
     partials: {
         partial: 'partial-login'
@@ -63,7 +67,8 @@ router.post('/login', (req, res) => {
       res.redirect('/');
     } else {
        // If we're NOTE valid user then go to the signup page
-      res.redirect('/users/signup');
+      res.sendStatus(401)
+      //res.redirect('/users/signup');
     }
   })
   
