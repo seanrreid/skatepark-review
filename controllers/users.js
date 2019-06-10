@@ -47,7 +47,7 @@ exports.login_post = async (req, res) => {
     
     // Get a single user via our User model
     const userInstance = new User(null, null, null, email, password);
-    const user = await userInstance.getOneUser();
+    const user = await userInstance.getUserByEmail();
 
     // Is our password valid?
     const valid = bcrypt.compareSync(password, user.password);

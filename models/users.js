@@ -25,7 +25,7 @@ class User {
         }
     }
 
-    async getOneUser() {
+    async getUserByEmail() {
         try {
             const response = await db.one(`
                 select 
