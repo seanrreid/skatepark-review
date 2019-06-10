@@ -22,7 +22,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:park_id?', async (req, res, next) => {
     const parkId = req.params.park_id;
     const parkData = await ParksModel.getById(parkId);
-    const reviewData = await ParksModel.getReviewsById(parkId);
+    const reviewData = await ParksModel.getParkReviews(parkId);
     
     res.render('template', {
         locals: {

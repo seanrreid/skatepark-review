@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "test": "mocha  tests/*.js --exit"
+    "test": "mocha",
+    "test:watch": "mocha -w"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
