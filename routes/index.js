@@ -19,4 +19,9 @@ router.get('/', async (req, res, next) => {
   });
 });
 
+router.get('/return', (req, res, next) => {
+  console.log('res', res.profile);
+  res.sendStatus(200);
+})
+
 module.exports = router;
