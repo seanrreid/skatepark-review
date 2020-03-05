@@ -3,7 +3,7 @@
     <title>Express Demo | ${title}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
+    
     <link rel="stylesheet" href="/stylesheets/style.css"/>
 </head>
 <body>
@@ -12,13 +12,8 @@
             <a class="navbar-item" href='/'>Home</a>
         </div>
         <div class="navbar-end">
-        ${!!is_logged_in ? `
-            <span class="navbar-item">Hello ${first_name}</span>
-            <a class="navbar-item" href='/users/logout'>Logout</a>
-        ` : `
             <a class="navbar-item" href='/users/login'>Login</a>
             <a class="navbar-item" href='/users/signup'>Sign Up</a>
-        `}
         </div>
     </nav>
     <h1 class="container">${title}</h1>
