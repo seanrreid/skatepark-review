@@ -1,6 +1,6 @@
 const express = require('express'),
-    router = express.Router(),
-    ParksModel = require('../models/parks');
+  router = express.Router(),
+  ParksModel = require('../models/parks');
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
@@ -10,8 +10,7 @@ router.get('/', async (req, res, next) => {
     locals: {
       title: 'Time to shred bruh!',
       parkData: parkList,
-      is_logged_in: req.session.is_logged_in,
-      first_name: req.session.first_name
+      is_logged_in: req.session.is_logged_in
     },
     partials: {
       partial: 'partial-index'

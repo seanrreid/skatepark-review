@@ -1,5 +1,10 @@
 <section class="section">
     <div class="clearfix">
+        ${!!first_name ? 
+            `<h1>Hey, ${first_name}, you are RAD!</h1>`
+            : 
+            `<h1>Hello there</h1>`
+        }
         <p>${parkData.address}</p>
         <figure class="image">
             <img src="${parkData.picture}"/>
