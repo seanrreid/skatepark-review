@@ -1,14 +1,14 @@
 const express = require('express'),
-    session = require('express-session'),
-    FileStore = require('session-file-store')(session),
-    es6Renderer = require('express-es6-template-engine'),
-    path = require('path'),
-    cookieParser = require('cookie-parser'),
-    logger = require('morgan');
+  session = require('express-session'),
+  FileStore = require('session-file-store')(session),
+  es6Renderer = require('express-es6-template-engine'),
+  path = require('path'),
+  cookieParser = require('cookie-parser'),
+  logger = require('morgan');
 
 const indexRouter = require('./routes/index'),
-    parkRouter = require('./routes/parks')
-    usersRouter = require('./routes/users');
+  parkRouter = require('./routes/parks');
+usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -21,13 +21,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
+app.use(
+  session({
     store: new FileStore(),
     secret: 'get rad',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     is_logged_in: false
-}));
+  })
+);
+
 app.use('/', indexRouter);
 app.use('/parks', parkRouter);
 app.use('/users', usersRouter);
